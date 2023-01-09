@@ -43,7 +43,7 @@ def start_script(data_path, service_name):
         lines = ["[unit]\n", "Description=MongoDB Service\n", "Documentation=https://www.mongodb.com/\n\n", "[Service]\n","ExecStart=mongod --dbpath "+data_path+"\n\n", "[Install]\n", "WantedBy=multi-user.target\n", "Alias=mongodb.service\n"]
         file.writelines(lines)
         file.close()
-    cmd = "sudo chmod -R u+rwx "+data_path+" && sudo systemctl start "+service_name
+    cmd = "sudo systemctl start "+service_name
     os.system(cmd)
     
 config_data = {}
