@@ -40,7 +40,7 @@ def start_script(data_path, service_name):
         pass
     os.makedirs(data_path)
     with open("/etc/systemd/system/mongodb.service", "w") as file:
-        lines = ["[unit]\n", "Description=MongoDB Service\n", "Documentation=https://www.mongodb.com/\n\n", "[Service]\n","ExecStart=mongod --dbpath "+data_path+"\n\n", "[Install]\n", "WantedBy=multi-user.target\n", "Alias=mongodb.service\n"]
+        lines = ["[Unit]\n", "Description=MongoDB Service\n", "Documentation=https://www.mongodb.com/\n\n", "[Service]\n","ExecStart=mongod --dbpath "+data_path+"\n\n", "[Install]\n", "WantedBy=multi-user.target\n", "Alias=mongodb.service\n"]
         file.writelines(lines)
         file.close()
     cmd = "sudo systemctl start "+service_name
