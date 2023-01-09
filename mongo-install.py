@@ -20,7 +20,7 @@ def download_binary(url, mongo_home):
     except:
         pass
     os.makedirs(mongo_home)
-    cmd = "sudo apt update -y && sudo apt-get install -y libcurl4 openssl liblzma5 &&  curl -o "+mongo_home+"/mongodb-6.0.3.tgz "+url
+    cmd = "sudo apt update -y && sudo apt-get install -y libcurl4 openssl liblzma5 && curl -o "+mongo_home+"/mongodb-6.0.3.tgz "+url
     os.system(cmd)
     logging.info("System updated & mongo binary downloaded.")
 
@@ -29,18 +29,21 @@ def mongo_config(mongo_home):
     os.system(cmd)
     logging.info("Mongo binary configured.")
 
-def start_mongo(data_path):
+def install_mongo_client(client):
+    cmd = "sudo apt-get install -y "+client
+    os.system(cmd)
+
+def start_script(data_path, service_name):
     try:
         shutil.rmtree(data_path)
     except:
         pass
     os.makedirs(data_path)
-    cmd = "/usr/local/bin/mongod --dbpath "+data_path
-    os.system(cmd)
-    logging.info("Mongo started...")
-
-def install_mongo_client(client):
-    cmd = "sudo apt-get install -y "+client
+    with open("/etc/systemd/system/mongodb.service", "w") as file:
+        lines = ["[unit]\n", "Description=MongoDB Service\n", "Documentation=https://www.mongodb.com/\n\n", "[Service]\n","ExecStart=mongod --dbpath "+data_path+"\n\n", "[Install]\n", "WantedBy=multi-user.target\n", "Alias=mongodb.service\n"]
+        file.writelines(lines)
+        file.close()
+    cmd = "sudo chmod -R u+rwx "+data_path+" && sudo systemctl start "+service_name
     os.system(cmd)
     
 config_data = {}
@@ -49,7 +52,7 @@ try:
     download_binary(config_data['url'], config_data['mongo_home']) 
     mongo_config(config_data['mongo_home'])
     install_mongo_client(config_data['client_name'])
-    start_mongo(config_data['data_path'])
-    
+    start_script(config_data['data_path'], config_data['service_name'])
+
 except Exception as exp:
     logging.exception("Mongo installation failed.")
