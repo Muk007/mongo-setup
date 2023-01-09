@@ -1,0 +1,8 @@
+{
+	"url": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2004-6.0.3.tgz",
+	"mongo_home": "/home/ubuntu/mongo",
+	"bin_destination": "/usr/local/bin",
+	"package_name": "mongodb-linux-x86_64-ubuntu2004-6.0.3.tgz",
+	"data_path": "/home/ubuntu/mongo/data",
+	"client_name": "mongodb-clients"
+}
