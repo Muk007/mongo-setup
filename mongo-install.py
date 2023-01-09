@@ -45,6 +45,7 @@ def start_script(data_path, service_name):
         file.close()
     cmd = "sudo systemctl start "+service_name
     os.system(cmd)
+    logging.info("Mongodb started...")
     
 config_data = {}
 try:
