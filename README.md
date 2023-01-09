@@ -7,3 +7,6 @@ Pointers --
 
 
 NOTE: This script still needs a lot of code addition which will be done in future. For now, it gives you mongodb serveer up and running. If you want to have a customized config file, you need to write your own config file.
+
+
+MOST IMPORTANT: Suggestions are always welcome, drop me message at manasrawat0007@gmail.com. Keep learning and keep exploring :) 
