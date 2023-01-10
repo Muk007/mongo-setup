@@ -16,7 +16,8 @@ NOTE: This script still needs a lot of code addition which will be done in futur
 
 **EDIT: 11 Jan 2023**
 
-Config file is added. After installation is complete, you can make changes in the config file as per your requirement and restart the service.
+1. Config file is added. After installation is complete, you can make changes in the config file as per your requirement and restart the service.
+2. This service is being controlled using systemctl commands. For example, **sudo systemctl restart mongodb**
 
 
 
