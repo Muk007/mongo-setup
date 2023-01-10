@@ -18,6 +18,5 @@ NOTE: This script still needs a lot of code addition which will be done in futur
 Config file is added. After installation is complete, you can make changes in the config file as per your requirement.
 
 
-** 
-Suggestions are always welcome, drop me message at manasrawat0007@gmail.com. Keep learning and keep exploring 
-**
+
+**Suggestions are always welcome, drop me message at manasrawat0007@gmail.com. Keep learning and keep exploring**
