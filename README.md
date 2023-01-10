@@ -9,7 +9,7 @@ Pointers:
 3. Run the script using command -- [ **sudo /usr/bin/python3 mongo-install.py mongo-install.json** ]
 
 
-NOTE: This script still needs a lot of code addition which will be done in future. For now, it gives you mongodb server up and running. If you want to have a customized config file, you need to write your own config file.
+NOTE: This script still needs a lot of code addition which will be done in future. For now, it gives you mongodb server up and running. If you want to have a customized config file, you need to write your own config file.\n\n\n\n\
 
 
 
