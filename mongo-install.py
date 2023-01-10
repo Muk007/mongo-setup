@@ -6,7 +6,7 @@ import json
 import shutil
 import logging
 
-logging.basicConfig(filename='/var/log/mongodb/mongodb.log', format='%(asctime)s, %(msecs)d %(name)s %(levelname)s %(message)s', datefmt='%H:%M:%S', level=logging.INFO)
+logging.basicConfig(filename='/var/log/mongodb/mongo-install.log', format='%(asctime)s, %(msecs)d %(name)s %(levelname)s %(message)s', datefmt='%H:%M:%S', level=logging.INFO)
 
 def load_config (config_file_path):
     config_data = {}
