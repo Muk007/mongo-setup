@@ -1,6 +1,6 @@
 **EDIT: 10 Jan 2023**
 
-This code helps to setup mongoDB in ubuntu 20.04 using binary (https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2004-6.0.3.tgz) 
+This code helps to setup mongoDB in ubuntu 20.04 using binary from Mongo official (https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2004-6.0.3.tgz).
 
 Pointers:
 
