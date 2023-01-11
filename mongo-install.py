@@ -20,12 +20,12 @@ def download_binary(url, mongo_home):
     except:
         pass
     os.makedirs(mongo_home)
-    cmd = "sudo apt update -y && sudo apt-get install -y libcurl4 openssl liblzma5 && curl -o "+mongo_home+"/mongodb-6.0.3.tgz "+url
+    cmd = "sudo apt update -y  \nsudo apt-get install -y libcurl4 openssl liblzma5  \ncurl -o "+mongo_home+"/mongodb-6.0.3.tgz "+url
     os.system(cmd)
     logging.info("System updated & mongo binary downloaded.")
 
 def mongo_config(mongo_home):
-    cmd = "tar -xvf "+mongo_home+"/mongodb-6.0.3.tgz -C "+mongo_home+" && mv "+mongo_home+"/mongodb-linux-x86_64-ubuntu2004-6.0.3 "+mongo_home+"/mongodb && sudo cp -R "+mongo_home+"/mongodb/bin/mongod /usr/local/bin/mongod && sudo chmod +x /usr/local/bin/mongod"
+    cmd = "tar -xvf "+mongo_home+"/mongodb-6.0.3.tgz -C "+mongo_home+" \nmv "+mongo_home+"/mongodb-linux-x86_64-ubuntu2004-6.0.3 "+mongo_home+"/mongodb  \nsudo cp -R "+mongo_home+"/mongodb/bin/mongod /usr/local/bin/mongod  \nsudo chmod +x /usr/local/bin/mongod"
     os.system(cmd)
     logging.info("Mongo binary configured.")
     
