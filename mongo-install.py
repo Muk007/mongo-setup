@@ -32,7 +32,7 @@ def mongo_config(mongo_home):
 def mongo_client_and_mongoConfig_setup(client, mongo_home):
     for (root,dirs,files) in os.walk(".", topdown=True):
         for names in files:
-            if names == kustom-mongodb.conf:
+            if 'kustom-mongodb.conf' in names:
                 shutil.copyfile(names, mongo_home+"/mongodb.conf")
     cmd = "sudo apt-get install -y "+client
     os.system(cmd)
