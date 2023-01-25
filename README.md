@@ -4,8 +4,9 @@ This code helps to setup mongoDB in ubuntu 20.04 using binary from Mongo officia
 
 Pointers:
 
-1. Clone the repo and then **cd** into it -- [ **git clone https://github.com/Muk007/mongo-setup.git &&  cd ./mongo-setup** ]
-2. Run the script using command -- [ **sudo /usr/bin/python3 mongo-install.py mongo-install.json** ]
+1. Make sure to add this dir -- [**sudo mkdir -p /var/log/mongodb**]
+2. Clone the repo and then **cd** into it -- [ **git clone https://github.com/Muk007/mongo-setup.git &&  cd ./mongo-setup** ]
+3. Run the script using command -- [ **sudo /usr/bin/python3 mongo-install.py mongo-install.json** ]
 
 
 **EDIT: 11 Jan 2023**
