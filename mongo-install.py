@@ -29,7 +29,7 @@ def mongo_config(mongo_home):
     os.system(cmd)
     logging.info("Mongo binary configured.")
     
-def mongo_client_and_mongoConfig_setup(client, mongo_home):
+def mongo_client_config(client, mongo_home):
     cmd = "sudo find / -iname 'kustom-mongodb.conf' -exec mv {} "+mongo_home+"/mongodb.conf \\; \nsudo apt-get install -y "+client
     os.system(cmd)
         
@@ -53,7 +53,7 @@ try:
     config_data = load_config(sys.argv[1])
     download_binary(config_data['url'], config_data['mongo_home']) 
     mongo_config(config_data['mongo_home'])
-    mongo_client_and_mongoConfig_setup(config_data['client_name'], config_data['mongo_home'])
+    mongo_client_config(config_data['client_name'], config_data['mongo_home'])
     start_script(config_data['data_path'], config_data['service_name'], config_data['mongo_home'])
     
 except Exception as exp:
