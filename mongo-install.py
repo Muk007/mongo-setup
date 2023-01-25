@@ -30,11 +30,7 @@ def mongo_config(mongo_home):
     logging.info("Mongo binary configured.")
     
 def mongo_client_and_mongoConfig_setup(client, mongo_home):
-    for (root,dirs,files) in os.walk(".", topdown=True):
-        for names in files:
-            if 'kustom-mongodb.conf' in names:
-                shutil.copyfile(names, mongo_home+"/mongodb.conf")
-    cmd = "sudo apt-get install -y "+client
+    cmd = "sudo find / -iname 'kustom-mongodb.conf' -exec mv {} "+mongo_home+"/mongodb.conf \\; \nsudo apt-get install -y "+client
     os.system(cmd)
         
 def start_script(data_path, service_name, mongo_home):
