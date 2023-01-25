@@ -32,7 +32,7 @@ def mongo_config(mongo_home):
 def mongo_client_and_mongoConfig_setup(client, mongo_home):
     cmd = "sudo apt-get install -y "+client
     os.system(cmd)
-    shutil.copyfile("/home/ubuntu/mongo-setup/mongodb.conf", mongo_home+"/mongodb.conf")
+    shutil.copyfile("~/mongo-setup/mongodb.conf", mongo_home+"/mongodb.conf")
     
 def start_script(data_path, service_name, mongo_home):
     try:
