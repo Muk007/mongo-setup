@@ -32,6 +32,7 @@ def mongo_config(mongo_home):
 def mongo_client_config(client, mongo_home):
     cmd = "sudo find / -iname 'kustom-mongodb.conf' -exec mv {} "+mongo_home+"/mongodb.conf \\; \nsudo apt-get install -y "+client
     os.system(cmd)
+    logging.info("Mongo client configured.")
         
 def start_script(data_path, service_name, mongo_home):
     try:
