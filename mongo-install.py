@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from urllib import request
+import wget
 import sys
 import os
 import json
@@ -31,7 +31,7 @@ def mongo_config(mongo_home):
     logging.info("Mongo binary configured.")
     
 def mongo_client_and_mongoConfig_setup(client, mongo_home):
-    response = request.urlretrieve("https://github.com/Muk007/mongo-setup/blob/main/mongodb.conf", mongo_home+"/mongodb.conf")
+    response = wget.download("https://github.com/Muk007/mongo-setup/blob/main/mongodb.conf", mongo_home+"/mongodb.conf")
     cmd = "sudo apt-get install -y "+client
     os.system(cmd)
         
