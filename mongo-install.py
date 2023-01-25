@@ -30,7 +30,7 @@ def mongo_config(mongo_home):
     logging.info("Mongo binary configured.")
     
 def mongo_client_config(client, mongo_home):
-    cmd = "sudo find / -iname 'kustom-mongodb.conf' -exec mv {} "+mongo_home+"/mongodb.conf \\; \nsudo apt-get install -y "+client
+    cmd = "sudo find / -iname 'kustom-mongodb.conf' -exec cp -R {} "+mongo_home+"/mongodb.conf \\; \nsudo apt-get install -y "+client
     os.system(cmd)
     logging.info("Mongo client configured.")
         
