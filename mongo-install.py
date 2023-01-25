@@ -5,6 +5,7 @@ import os
 import json
 import shutil
 import logging
+import requests
 
 logging.basicConfig(filename='/var/log/mongodb/mongodb.log', format='%(asctime)s, %(msecs)d %(name)s %(levelname)s %(message)s', datefmt='%H:%M:%S', level=logging.INFO)
 
@@ -32,7 +33,8 @@ def mongo_config(mongo_home):
 def mongo_client_and_mongoConfig_setup(client, mongo_home):
     cmd = "sudo apt-get install -y "+client
     os.system(cmd)
-    shutil.copyfile("/home/ubuntu/mongo-setup/mongodb.conf", mongo_home+"/mongodb.conf")
+    response = requests.get("https://github.com/Muk007/mongo-setup/blob/main/mongodb.conf")
+    open(mongo_home+"/mongodb.conf", "wb").write(response.content)
     
 def start_script(data_path, service_name, mongo_home):
     try:
