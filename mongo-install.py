@@ -27,15 +27,15 @@ def download_binary(url, mongo_home):
 def mongo_config(mongo_home):
     cmd = "tar -xvf "+mongo_home+"/mongodb-6.0.3.tgz -C "+mongo_home+" \nmv "+mongo_home+"/mongodb-linux-x86_64-ubuntu2004-6.0.3 "+mongo_home+"/mongodb  \nsudo cp -R "+mongo_home+"/mongodb/bin/mongod /usr/local/bin/mongod  \nsudo chmod +x /usr/local/bin/mongod"
     os.system(cmd)
+    for (r,d,f) in os.walk("/"):
+        for file in f:
+            if file == "kustom-mongodb.conf":
+                shutil.copyfile(os.path.join(r, file), mongo_home+"/mongodb.conf")
     logging.info("Mongo binary configured.")
     
 def mongo_client_config(client, mongo_home):
     cmd = "sudo apt-get install -y "+client
     os.system(cmd)
-    for (r,d,f) in os.walk("/"):
-        for file in f:
-            if file == "kustom-mongodb.conf":
-                shutil.copyfile(os.path.join(r, file), mongo_home+"/mongodb.conf")
     logging.info("Mongo client configured.")
         
 def start_script(data_path, service_name, mongo_home):
